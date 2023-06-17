@@ -43,8 +43,8 @@
                             ],
                             "fileReplacements": [
                                 {
-                                    "replace": "src/app/modules.ts",
-                                    "with": "src/app/modules.prod.ts"
+                                    "replace": "src/app/modules/modules.ts",
+                                    "with": "src/app/modules/modules.prod.ts"
                                 }
                             ],
 
