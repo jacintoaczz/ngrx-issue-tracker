@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { increment, multiply, State } from '../../store/store';
+
+import { increment, multiply, State } from '@store/counter.store';
 
 /**
  * Counter component
