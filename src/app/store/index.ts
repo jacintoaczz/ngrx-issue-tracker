@@ -1,7 +1,8 @@
-import { ActionReducerMap } from '@ngrx/store';
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 
 import { issuesReducer } from '@store/issue/issue.reducer';
 import { IssueState } from '@store/issue/issue.state';
+import { resettingMetaReducer } from '@store/meta-reducers';
 
 export interface RootState {
     issues: IssueState;
@@ -13,3 +14,5 @@ export interface RootState {
 export const reducers: ActionReducerMap<RootState> = {
     issues: issuesReducer,
 };
+
+export const metaReducers: MetaReducer[] = [resettingMetaReducer];
