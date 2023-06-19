@@ -11,3 +11,8 @@ export const submit = createAction('[Issue] Submit', (issue: Issue) => {
         },
     };
 });
+
+/**
+ * Fires the lookup for an Issue record based on a search text.
+ */
+export const search = createAction('[Issue] Search', props<{ text: string }>());
