@@ -23,5 +23,12 @@ export const issuesReducer = createReducer(
             ...state.filter,
             text,
         },
+    })),
+    on(IssueActions.resolve, (state, { issue }) => ({
+        ...state,
+        entities: {
+            ...state.entities,
+            [issue.id]: issue,
+        },
     }))
 );
