@@ -33,4 +33,16 @@ export class IssuesListComponent {
     search(text: string): void {
         this._store.dispatch(IssueActions.search({ text }));
     }
+
+    /**
+     * Sets the state of the given issue to "resolved".
+     * @param issue
+     */
+    resolve(issue: Issue): void {
+        // This kind of mutation is not recommended, since we can lose
+        // traceability.
+        // issue.resolved = true;
+
+        this._store.dispatch(IssueActions.resolve({ issue: { ...issue, resolved: true } }));
+    }
 }
