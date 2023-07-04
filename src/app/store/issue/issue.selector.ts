@@ -1,9 +1,10 @@
-import { createSelector } from '@ngrx/store';
+import { createSelector, select } from '@ngrx/store';
 
 import { RootState } from '@app/store';
 import { Issue } from '@models/issues/issue.interface';
 import { Filter } from '@store/issue/issue.state';
 import { Issues } from '@models/issues/issues.interface';
+import { pipe, skipWhile } from 'rxjs';
 
 export interface IssueStats {
     total: number;
@@ -58,6 +59,20 @@ export const selectStats = createSelector(selectAll, (issues): IssueStats => {
 });
 
 /**
- * Selects on entity by 'id'
+ * Selects one entity by 'id'
  */
 export const selectOne = (id: string) => createSelector(selectEntities, (entities: Issues) => entities[id]);
+
+/**
+ * Selects the loading state for the feature.
+ */
+export const selectIsLoaded = createSelector(selectFeature, ({ isLoaded }) => isLoaded);
+
+/**
+ * Pipeable selector to get all the issues that are already loaded in the system.
+ */
+export const selectAllLoaded = () =>
+    pipe(
+        skipWhile((state: RootState) => !selectIsLoaded(state)),
+        select(selectAll)
+    );

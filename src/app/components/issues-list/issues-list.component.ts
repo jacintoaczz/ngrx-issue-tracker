@@ -23,7 +23,7 @@ export class IssuesListComponent {
      * @param _store
      */
     constructor(private _store: Store<RootState>) {
-        this.issues$ = this._store.select(fromIssues.selectAll);
+        this.issues$ = this._store.pipe(fromIssues.selectAllLoaded());
     }
 
     /**

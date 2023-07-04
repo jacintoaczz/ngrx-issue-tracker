@@ -11,10 +11,12 @@ export interface IssueState {
     entities: Issues;
     selected: string[];
     filter: Filter;
+    isLoaded: boolean;
 }
 
 export const initialState: IssueState = {
     entities: {},
     selected: [],
     filter: { text: '' },
+    isLoaded: false,
 };
