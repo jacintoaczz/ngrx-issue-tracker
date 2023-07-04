@@ -8,6 +8,13 @@ const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'issues' },
     { path: 'issues', component: IssuesComponent },
     { path: 'issues/:id', component: IssueDetailComponent },
+    {
+        path: 'settings',
+        loadChildren: () =>
+            import('./settings/settings.module' /* webpackChunkName: "settings_module" */).then(
+                (m) => m.SettingsModule
+            ),
+    },
 ];
 
 @NgModule({
