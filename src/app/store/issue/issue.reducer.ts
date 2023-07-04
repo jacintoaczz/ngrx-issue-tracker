@@ -16,5 +16,25 @@ export const issuesReducer = createReducer(
                 resolved: false,
             };
         })
-    )
+    ),
+    on(IssueActions.search, (state, { text }) => ({
+        ...state,
+        filter: {
+            ...state.filter,
+            text,
+        },
+    })),
+    on(IssueActions.resolve, (state, { issueId }) => {
+        const issue = state.entities[issueId];
+        return {
+            ...state,
+            entities: {
+                ...state.entities,
+                [issueId]: {
+                    ...issue,
+                    resolved: true,
+                },
+            },
+        };
+    })
 );

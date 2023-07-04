@@ -10,12 +10,21 @@ import { CounterComponent } from '@components/counter/counter.component';
 import { modules } from './modules/modules';
 import { IssuesComponent } from '@components/issues/issues.component';
 import { NewIssueComponent } from '@components/new-issue/new-issue.component';
+import { IssuesListComponent } from '@components/issues-list/issues-list.component';
+import { IssueDetailComponent } from '@components/issue-detail/issue-detail.component';
 
 /**
  * Main module of the application.
  */
 @NgModule({
-    declarations: [AppComponent, CounterComponent, IssuesComponent, NewIssueComponent],
+    declarations: [
+        AppComponent,
+        CounterComponent,
+        IssuesComponent,
+        NewIssueComponent,
+        IssuesListComponent,
+        IssueDetailComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
