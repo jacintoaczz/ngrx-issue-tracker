@@ -23,4 +23,4 @@ export const search = createAction('[Issue] Search', props<{ text: string }>());
 /**
  * Fires the action to change the resolution state of an issue.
  */
-export const resolve = createAction('[Issue] Resolve', props<{ issue: Issue }>());
+export const resolve = createAction('[Issue] Resolve', props<{ issueId: string }>());

@@ -43,6 +43,6 @@ export class IssuesListComponent {
         // traceability.
         // issue.resolved = true;
 
-        this._store.dispatch(IssueActions.resolve({ issue: { ...issue, resolved: true } }));
+        this._store.dispatch(IssueActions.resolve({ issueId: issue.id }));
     }
 }
