@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsComponent } from './settings.component';
 import { settingsFeatureKey } from '@app/settings/store/notification/notifications.state';
-import { settingsReducer } from '@app/settings/store/notification/notifications.reducer';
+import { notificationsReducer } from '@app/settings/store/notification/notifications.reducer';
 
 /**
  * Settings feature module.
@@ -16,7 +16,7 @@ import { settingsReducer } from '@app/settings/store/notification/notifications.
     imports: [
         CommonModule,
         SettingsRoutingModule,
-        StoreModule.forFeature(settingsFeatureKey, settingsReducer),
+        StoreModule.forFeature(settingsFeatureKey, notificationsReducer),
         ReactiveFormsModule,
     ],
 })

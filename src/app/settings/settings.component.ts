@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { FormBuilder } from '@angular/forms';
 
 import { Priority } from '@models/issues/priority.interface';
-import * as fromSettings from '@app/settings/store/notification/notifications.selectors';
-import * as SettingsActions from '@app/settings/store/notification/notifications.actions';
+import * as fromNotifications from '@app/settings/store/notification/notifications.selectors';
+import * as NotificationsActions from '@app/settings/store/notification/notifications.actions';
 import { SettingsRootState } from '@app/settings/store/notification/notifications.state';
 
 /**
@@ -17,13 +18,17 @@ import { SettingsRootState } from '@app/settings/store/notification/notification
 })
 export class SettingsComponent {
     notificationPriority$: Observable<Priority>;
+    notificationsForm = this._fb.group({
+        priority: [],
+    });
 
     /**
      * DI Constructor
+     * @param _fb
      * @param _store
      */
-    constructor(private _store: Store<SettingsRootState>) {
-        this.notificationPriority$ = this._store.select(fromSettings.selectNotificationPriority);
+    constructor(private _fb: FormBuilder, private _store: Store<SettingsRootState>) {
+        this.notificationPriority$ = this._store.select(fromNotifications.selectNotificationPriority);
     }
 
     /**
@@ -33,6 +38,6 @@ export class SettingsComponent {
     changeNotificationPriority(notificationPriority: string): void {
         const priority = notificationPriority as Priority;
 
-        this._store.dispatch(SettingsActions.changeNotificationPriority({ notificationPriority: priority }));
+        this._store.dispatch(NotificationsActions.changeNotificationPriority({ notificationPriority: priority }));
     }
 }
