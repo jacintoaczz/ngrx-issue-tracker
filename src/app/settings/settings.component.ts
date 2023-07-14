@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { Priority } from '@models/issues/priority.interface';
-import * as fromSettings from './store/settings.selectors';
-import * as SettingsActions from './store/settings.actions';
-import { SettingsRootState } from '@app/settings/store/settings.state';
+import * as fromSettings from '@app/settings/store/notification/notifications.selectors';
+import * as SettingsActions from '@app/settings/store/notification/notifications.actions';
+import { SettingsRootState } from '@app/settings/store/notification/notifications.state';
 
 /**
  * Settings feature main component

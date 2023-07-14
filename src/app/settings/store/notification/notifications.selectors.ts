@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { settingsFeatureKey, SettingsState } from '@app/settings/store/settings.state';
+import { settingsFeatureKey, SettingsState } from '@app/settings/store/notification/notifications.state';
 
 /**
  * Main feature selector for the "Settings" feature.
